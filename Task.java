@@ -152,20 +152,7 @@ class SurgeryRecord extends SpecialistRecord {
     }
 
     void referPatient(String specialistName, String reason) {
-        if (getMaxReferrals() > 0) {
-            System.out.println("Patient Name: " + getPatientName());
-            System.out.println("Specialist Name: " + specialistName);
-            System.out.println("Referral Reason: " + reason);
-
-            setMaxReferrals(getMaxReferrals() - 1);
-
-            System.out.println("Referral Successful!");
-            System.out.println("Remaining Referrals: " + getMaxReferrals());
-        } 
-        else {
-            System.out.println("Referral Refused!");
-            System.out.println("Maximum referral limit reached.");
-        }
+    
     }
 }
 
@@ -179,18 +166,5 @@ public class Main {
         general.issueInvoice("Rahim Ahmed");
         System.out.printf("Bill after 10% discount: ", general.calculateBill());
         System.out.printf("Bill after 20% insurance coverage: ", general.calculateBill(20));
-
-        System.out.println("\nSURGERY RECORD: ");
-        System.out.println("Next Appointment: " + surgery.getNextAppointment());
-        surgery.issueInvoice("Abdul Rahman");
-        System.out.printf("Bill after 30% discount: ", surgery.calculateBill());
-        System.out.printf("Bill after 20% insurance coverage: ", surgery.calculateBill(20));
-
-        System.out.println("\nPATIENT REFERRAL: ");
-        surgery.referPatient("Dr. Mahmud", "Cardiac consultation required");
-        System.out.println();
-        surgery.referPatient("Dr. Rahman", "Neurological consultation required");
-        System.out.println();
-        surgery.referPatient("Dr. Ahmed", "Further specialist consultation");
     }
   }
